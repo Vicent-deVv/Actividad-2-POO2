@@ -1,4 +1,3 @@
-
 public class FacturaAdapter implements FacturaService {
     private LegacyBillingSystem legacy;
 
@@ -8,8 +7,12 @@ public class FacturaAdapter implements FacturaService {
 
     @Override
     public void emitirFactura(double Monto, String cliente) {
-        legacy.abrirConeccion();
+        if(Monto <= 0){
+            System.out.println("Error, el monto debe ser positivo para generar la factura");
+        }
 
+
+        legacy.abrirConeccion();
         legacy.generarFactura(cliente,Monto);
 
         System.out.println("Factura generada con exito para el cliente:" + cliente + " por un monto de:" + Monto);
