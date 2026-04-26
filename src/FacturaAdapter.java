@@ -9,6 +9,7 @@ public class FacturaAdapter implements FacturaService {
     public void emitirFactura(double Monto, String cliente) {
         if(Monto <= 0){
             System.out.println("Error, el monto debe ser positivo para generar la factura");
+            return;
         }
 
 
